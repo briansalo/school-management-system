@@ -8,7 +8,7 @@ use App\Models\User;
 class UserController extends Controller
 {
     public function UserView(){
-        $data['alldata'] = User::all();
+        $data['alldata'] = User::where('usertype','Admin')->get();
         return view('backend.user.view_user',$data); 
     }
 
@@ -25,10 +25,13 @@ class UserController extends Controller
         ]);
 
         $data = new User();
-        $data->usertype = $request->usertype;
+        $code = rand(0000,9999); //create random password
+        $data->usertype = 'Admin';
+        $data->role = $request->role;
         $data->name = $request->user_name;
         $data->email = $request->email;
-        $data->password = bcrypt($request->password);
+        $data->password = bcrypt($code);
+        $data->code = $code;
         $data->save();
 
         $notification = array(
@@ -46,10 +49,9 @@ class UserController extends Controller
 
     public function UserUpdate(Request $request, $id){
         $data = User::Find($id);
-        $data->usertype = $request->usertype;
         $data->name = $request->user_name;
         $data->email = $request->email;
-        $data->password = bcrypt($request->password);
+         $data->role = $request->role;
         $data->save();
 
         $notification = array(

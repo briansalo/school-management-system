@@ -33,6 +33,7 @@
 
   <!-- Content Wrapper. Contains page content -->
 @yield('admin')
+
   <!-- /.content-wrapper -->
 @include('admin.body.footer')
 
@@ -68,7 +69,10 @@
 	<script src="{{asset('admin_template/js/template.js')}}"></script>
 	<script src="{{asset('admin_template/js/pages/dashboard.js')}}"></script>
 
+
+
 <!-- Sweet alert no need to change the sources -->
+<!-- it will function if theres a button or clickable that have id delete -->
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 		<script type="text/javascript">
 			$(function(){

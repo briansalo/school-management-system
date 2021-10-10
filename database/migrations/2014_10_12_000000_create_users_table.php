@@ -15,16 +15,28 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('usertype')->nullable();
+            $table->string('usertype')->nullable()->comment('Student, Employee, Admin');
             $table->string('name');
             $table->string('email')->unique();
-            $table->text('profile_photo_path')->nullable();
-            $table->string('gender')->nullable();
-            $table->string('address')->nullable();
-            $table->string('mobile_number')->nullable();
-            $table->string('status')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('mobile_number')->nullable();
+            $table->string('address')->nullable();
+            $table->string('gender')->nullable();
+            $table->string('image')->nullable();
+            $table->string('fathers_name')->nullable();
+            $table->string('mothers_name')->nullable();
+            $table->string('religion')->nullable();
+            $table->string('id_no')->nullable();
+            $table->date('dob')->nullable();
+            $table->string('code')->nullable();
+            $table->string('role')->nullable()->comment('admin-head of software, operator-computer operator, user-employee');
+            $table->date('join_date')->nullable();
+            $table->integer('designation_id')->nullable();
+            $table->double('salary')->nullable();
+            $table->tinyInteger('salary_increase_status')->default(0)->comment('0=inactive, 1=active');
+            $table->tinyInteger('status')->default(1)->comment('0=inactive, 1=active');
+            $table->text('profile_photo_path')->nullable();
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
             $table->timestamps();

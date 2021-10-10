@@ -33,15 +33,13 @@ class ProfileController extends Controller
         $editData->address = $request->address;
         $editData->gender = $request->gender;
         $editData->mobile_number = $request->mobile_number;
-
-
+        
         if($request->file('image')){  // if there's an image
             $file= $request->file('image'); // store the image in the variable
-            @unlink(public_path('upload/user_images/'.$editData->profile_photo_path));
+            @unlink(public_path('upload/user_images/'.$editData->profile_photo_path)); //to delete the previous image
             $filename = date('YmdHi').$file->getClientOriginalName(); // make own name of the images
             $file->move(public_path('upload/user_images'),$filename); //location of the storage
             $editData->profile_photo_path = $filename;
-
         }
         $editData->save(); 
 
@@ -81,7 +79,6 @@ class ProfileController extends Controller
             return redirect()->back()->with($notification);
 
     }
-
 
 
 

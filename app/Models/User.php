@@ -11,6 +11,9 @@ use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Jetstream\HasTeams;
 use Laravel\Sanctum\HasApiTokens;
 
+use App\Models\Designation;
+use App\Models\EmployeeSallaryLog;
+
 class User extends Authenticatable
 {
     use HasApiTokens;
@@ -58,4 +61,14 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function designation(){
+        return $this->belongsTo(Designation::class, 'designation_id', 'id');
+    }
+
+    public function salarylog(){
+        return $this->belongsTo(EmployeeSallaryLog::class, 'id', 'employee_id');
+    }
+
 }
+

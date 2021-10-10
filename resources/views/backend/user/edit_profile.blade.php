@@ -17,6 +17,7 @@
 			<div class="box-body">
 			  <div class="row">
 				<div class="col">
+								 <!-- enctype for inserting image in database to make it file type -->
 					<form method="post" action="{{ route('profile.update') }}" enctype="multipart/form-data">
 						@csrf
 

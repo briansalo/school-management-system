@@ -7,6 +7,7 @@ $(function () {
     "use strict";
 
     $('#example1').DataTable();
+
     $('#example2').DataTable({
       'paging'      : true,
       'lengthChange': false,
@@ -16,7 +17,51 @@ $(function () {
       'autoWidth'   : false
     });
 	
+    $('#1stgrading').DataTable({
+      'paging'      : true,
+      'lengthChange': true,
+      'searching'   : true,
+      'ordering'    : false,
+      'info'        : false,
+      'autoWidth'   : false
+    });
 	
+    $('#2ndgrading').DataTable({
+      'paging'      : true,
+      'lengthChange': true,
+      'searching'   : true,
+      'ordering'    : false,
+      'info'        : false,
+      'autoWidth'   : false
+    });
+
+     $('#3rdgrading').DataTable({
+      'paging'      : true,
+      'lengthChange': true,
+      'searching'   : true,
+      'ordering'    : false,
+      'info'        : false,
+      'autoWidth'   : false
+    });
+
+     $('#4thgrading').DataTable({
+      'paging'      : true,
+      'lengthChange': true,
+      'searching'   : true,
+      'ordering'    : false,
+      'info'        : false,
+      'autoWidth'   : false
+    });
+
+     $('#finalgrade').DataTable({
+      'paging'      : true,
+      'lengthChange': true,
+      'searching'   : true,
+      'ordering'    : false,
+      'info'        : false,
+      'autoWidth'   : false
+    });
+
 	$('#example').DataTable( {
 		dom: 'Bfrtip',
 		buttons: [

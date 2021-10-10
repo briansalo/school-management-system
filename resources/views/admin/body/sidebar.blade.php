@@ -31,8 +31,8 @@
 			<span>Dashboard</span>
           </a>
         </li>  
-		
-        <li class="treeview {{($prefix == '/users')?'active':''}}">
+		@if(Auth::user()->role == "Admin")
+        <li class="treeview {{($prefix == '/users')?'active':''}}"> <!-- condition if the prefix is users then active or highlights the manage user-->
           <a href="#">
             
             <span>Manage User</span>
@@ -44,43 +44,78 @@
             <li><a href="{{route('user.view')}}"><i class="ti-more"></i>View User</a></li>
             <li><a href="{{route('user.add')}}"><i class="ti-more"></i>Add User</a></li>
           </ul>
-        </li> 
+        </li>
+        @endif
+
 		  
-        <li class="treeview {{($prefix == '/profiles')?'active':''}} ">
+        <li class="treeview {{($prefix == '/setups')?'active':''}} "> <!-- condition of the prefix is setups then active or highlights this-->
           <a href="#">
-            <i data-feather="mail"></i> <span>Manage Profile</span>
+             <span>Setup Management</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-right pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="{{ route('profile.view') }}"><i class="ti-more"></i>Your Profile</a></li>
-            <li><a href="mailbox_compose.html"><i class="ti-more"></i>Change Password</a></li>
+            <li><a href="{{route('student.class.view')}}"><i class="ti-more"></i>Student Class</a></li>
+            <li><a href="{{route('student.year.view')}}"><i class="ti-more"></i>Student Year</a></li>
+            <li><a href="{{route('student.grade.view')}}"><i class="ti-more"></i>Student Grade</a></li>
+            <li><a href="{{route('school.subject.view')}}"><i class="ti-more"></i>School Subject</a></li>
+            <li><a href="{{route('designation.view')}}"><i class="ti-more"></i>Designation</a></li>
+            <li><a href="{{route('student.fee.view')}}"><i class="ti-more"></i>Student Fee</a></li>
+            <li><a href="{{route('assign.grade.view')}}"><i class="ti-more"></i>Assign Grade</a></li>
+            <li><a href="{{route('category.amount.view')}}"><i class="ti-more"></i>Fee Category Amount</a></li>
           </ul>
         </li>
-		
-		 
-        <li class="header nav-small-cap">User Interface</li>
 		  
-        <li class="treeview">
+
+<li class="treeview {{($prefix == '/students')?'active':''}} "> <!-- condition of the prefix is setups then active or highlights this-->
           <a href="#">
-            <i data-feather="grid"></i>
-            <span>Components</span>
+             <span>Student Management</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-right pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="components_alerts.html"><i class="ti-more"></i>Alerts</a></li>
-            <li><a href="components_badges.html"><i class="ti-more"></i>Badge</a></li>
-            <li><a href="components_buttons.html"><i class="ti-more"></i>Buttons</a></li>
-            <li><a href="components_sliders.html"><i class="ti-more"></i>Sliders</a></li>
-            <li><a href="components_dropdown.html"><i class="ti-more"></i>Dropdown</a></li>
-            <li><a href="components_modals.html"><i class="ti-more"></i>Modal</a></li>
-            <li><a href="components_nestable.html"><i class="ti-more"></i>Nestable</a></li>
-            <li><a href="components_progress_bars.html"><i class="ti-more"></i>Progress Bars</a></li>
+            <li><a href="{{route('student.registration.add')}}"><i class="ti-more"></i>Student Registration</a></li>
+            <li><a href="{{route('student.registration.view')}}"><i class="ti-more"></i>Student List</a></li>
+            <li><a href="{{route('student.registration_fee.view')}}"><i class="ti-more"></i>Student Fee</a></li>
           </ul>
         </li>
+
+
+<li class="treeview {{($prefix == '/employee')?'active':''}} "> <!-- condition of the prefix is setups then active or highlights this-->
+          <a href="#">
+             <span>Employee Management</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{{route('employee.registration.add')}}"><i class="ti-more"></i>Employee Registration</a></li>
+            <li><a href="{{route('employee.registration.view')}}"><i class="ti-more"></i>Employee List</a></li>
+            <li><a href="{{route('employee.salary.view')}}"><i class="ti-more"></i>Employee Salary</a></li>
+            <li><a href="{{route('employee.attendance.view')}}"><i class="ti-more"></i>Employee Attendance</a></li>
+            <li><a href="{{route('employee.monthly.salary.view')}}"><i class="ti-more"></i>Employee Monthly Salary</a></li>
+            <li><a href="{{route('employee.generate.payroll.view')}}"><i class="ti-more"></i>Generate Payroll</a></li>
+          </ul>
+        </li>
+
+
+<li class="treeview {{($prefix == '/class')?'active':''}} "> <!-- condition of the prefix is setups then active or highlights this-->
+          <a href="#">
+             <span>Class Management</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{{route('class.assign.view')}}"><i class="ti-more"></i>Class Assign</a></li>
+            <li><a href="{{route('class.student.grade.search')}}"><i class="ti-more"></i>Student Grade</a></li>
+          </ul>
+        </li>
+    		 
+        
+
 		
 		  
         
